@@ -1,8 +1,8 @@
 name: 'Automatic Versioning'
 description: 'Automate versioning for certain files in a repositories when changes occur to them'
 branding:
-  icon:file-plus
-  color:white
+  icon: file-plus
+  color: white
 inputs:
   metadata-file:
     description: 'The relative path and name of the json file that holds the metadata'
