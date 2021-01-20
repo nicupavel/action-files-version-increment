@@ -24,12 +24,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Checking for files to increase version
-        uses: ./
-        id: versioning_job
-        with:
-          metadata-file: 'version-metadata.json'
-          version-increment: 0.01
+      - name: Automatic Versioning
+        uses: nicupavel/action-files-version-increment@1.0
       - name: Get the output time
         run: echo "The time was ${{ steps.versioning_job.outputs.time }}"
       - name: Get list of modified files
