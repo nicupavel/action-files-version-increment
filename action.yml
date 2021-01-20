@@ -1,0 +1,19 @@
+name: 'Automatic Versioning'
+description: 'Automate versioning for certain files in a repositories when changes occur to them'
+inputs:
+  metadata-file:
+    description: 'The relative path and name of the json file that holds the metadata'
+    required: true
+    default: 'version-metadata.json'
+  version-increment:
+    description: 'The amount to add to existing versions '
+    required: true
+    default: 0.01
+outputs:
+  time:
+    description: 'The time action was performed'
+  modified_files:
+    description: 'The files modified by last commits'
+runs:
+  using: 'node12'
+  main: 'index.js'

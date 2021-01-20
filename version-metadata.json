@@ -1,0 +1,14 @@
+{
+  "files": {
+    "parsers/aeris-parser.py": {
+      "version": "1.01",
+      "author": ""
+    },
+    "parsers/ambientweather-parser.py": {
+      "version": "1.01"
+    },
+    "parsers/cimis-parser.py": {
+      "version": 1
+    },
+  }
+}
