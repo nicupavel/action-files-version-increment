@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Automatic Versioning
-        uses: nicupavel/action-files-version-increment@v2
+        uses: nicupavel/action-files-version-increment@v3
       - name: Get the output time
         run: echo "The time was ${{ steps.versioning_job.outputs.time }}"
       - name: Get list of modified files
