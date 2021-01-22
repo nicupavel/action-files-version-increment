@@ -30,7 +30,9 @@ jobs:
         run: echo "The time was ${{ steps.versioning_job.outputs.time }}"
       - name: Get list of modified files
         run: echo "Modified files ${{ steps.versioning_job.outputs.modified_files }}"
-      - name: Commit metadata file
+      - id: commit_if_modified
+        name: Commit metadata file
+        if: steps.versioning_job.outputs.modified_files
         run: |
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config --local user.name "$GITHUB_ACTOR"
