@@ -78,12 +78,12 @@ const main = async() => {
     }
 
     let files_list;
+    let matched_files_list = [];
 
     try {
         //let files = await execute(`git diff-tree --no-commit-id --name-only -r ${head}`);
         let files = await execute(`git diff --name-only ${head} ${base}`);
         files_list = files.split('\n');
-        core.setOutput("modified_files", files);
     } catch (e) {
         core.setFailed(`Error executing git diff ${e}`);
     }
@@ -99,8 +99,11 @@ const main = async() => {
             core.info(`${name}: ${ver} -> ${ver + versionIncrement}`);
             ver = ver + versionIncrement;
             metadata.files[name].version = ver.toFixed(2);
+            matched_files_list.push(name);
         }
     }
+
+    core.setOutput("modified_files", matched_files_list.join(','));
 
     if (!saveMetaFile(metadataFile, metadata)) {
         core.setFailed('Cannot save new metadata');
